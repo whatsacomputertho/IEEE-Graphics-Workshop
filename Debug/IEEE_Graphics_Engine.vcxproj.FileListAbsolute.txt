@@ -1,0 +1,2 @@
+C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Debug\IEEE_Graphics_Engine.exe
+C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Debug\IEEE_Graphics_Engine.pdb

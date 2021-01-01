@@ -1,0 +1,6 @@
+﻿  Main.cpp
+C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Shader.h(98,53): warning C4838: conversion from 'unsigned int' to 'GLint' requires a narrowing conversion
+  Shader.cpp
+C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Shader.h(98,53): warning C4838: conversion from 'unsigned int' to 'GLint' requires a narrowing conversion
+  Generating Code...
+  IEEE_Graphics_Engine.vcxproj -> C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Debug\IEEE_Graphics_Engine.exe
