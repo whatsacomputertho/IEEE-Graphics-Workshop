@@ -1,0 +1,5 @@
+# IEEE-Graphics-Workshop
+This graphics engine will be presented as an application of 3D graphics principles explored by our IEEE Graphics Workshop this spring
+
+# Installation Guide
+If you plan on downloading this for use during the IEEE Graphics Workshop, please follow the following instructions.  First, clone the repository either using GitHub, or do so by initializing a new local repository on your machine, and cloning this repository into your local repository.  This repository contains all the necessary libraries, source code, and even project files if you choose to work in Visual Studio on a Windows machine (which may need some modification here and there, but overall not much).  That said, if you do not prefer the Visual Studio IDE and/or the Windows OS, and would like to use a different environment altogether, there will be some additional setup work that needs to be done after cloning the repository, like re-organization of library, DLL, and include files, as well as integration of source files into your project.
