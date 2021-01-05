@@ -43,12 +43,17 @@ void Shader::init()
 
 void Shader::bind() 
 {
+	//Bind the program (static variable in Shader class)
 	glUseProgram(Shader::program);
 }
 
-void Shader::update(Transform transform)
+void Shader::update(Transform& transform, Camera& camera)
 {
-	glUniformMatrix4fv(uniforms[TRANSFORM], 1, GL_FALSE, &transform.getWorld()[0][0]);
+	//Combine view projection matrix with the model/world matrix
+	glm::mat4 mvp = camera.getViewProjection() * transform.getWorld();
+
+	//Send our transformation and projection data to our shader program
+	glUniformMatrix4fv(uniforms[TRANSFORM], 1, GL_FALSE, &mvp[0][0]);
 }
 
 Shader::Shader(std::string filePath, GLenum shaderType)

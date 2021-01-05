@@ -9,6 +9,8 @@ SDL_GLContext Window::getGlContext() { return this->glContext; }
 std::string Window::getName() { return this->name; }
 int Window::getWidth() { return this->width; }
 int Window::getHeight() { return this->height; }
+int Window::getXMouse() { return this->xMouse; }
+int Window::getYMouse() { return this->yMouse; }
 bool Window::isClosed() { return this->closed; }
 void Window::setWindow(SDL_Window* window) { this->window = window; }
 void Window::setGlContext(SDL_GLContext glContext) { this->glContext = glContext; }
@@ -45,7 +47,7 @@ void Window::init()
 	}
 }
 
-void Window::update() 
+void Window::update(Camera& camera) 
 {
 	//Swap buffers - remember, we're double buffering!
 	SDL_GL_SwapWindow(getWindow());
@@ -61,9 +63,27 @@ void Window::update()
 			break;
 
 		case SDL_MOUSEMOTION:
-			int xMouse, yMouse;
 			SDL_GetMouseState(&xMouse, &yMouse);
-			std::cout << xMouse << '\t' << yMouse << std::endl;
+			camera.updateRotation(getXMouse(), getYMouse(), getWidth(), getHeight());
+			break;
+
+		case SDL_KEYDOWN:
+			//Switch keycode and set direction
+			switch (e.key.keysym.sym)
+			{
+			case SDLK_w:
+				camera.updatePosition(0);
+				break;
+			case SDLK_a:
+				camera.updatePosition(1);
+				break;
+			case SDLK_s:
+				camera.updatePosition(2);
+				break;
+			case SDLK_d:
+				camera.updatePosition(3);
+				break;
+			}
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
