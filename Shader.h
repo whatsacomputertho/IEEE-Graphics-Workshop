@@ -4,6 +4,7 @@
 #include <iostream>
 #include <glew.h>
 #include "Transform.h"
+#include "Camera.h"
 
 class Shader
 {
@@ -11,8 +12,9 @@ public:
 	Shader(std::string filePath, GLenum shaderType);
 	~Shader();
 	void bind();
-	void update(Transform transform);
+	void update(Transform& transform, Camera& camera);
 	static GLuint program;
+	static Camera camera;
 	std::string getFilePath();
 	GLuint getShader();
 	GLuint* getUniforms();
