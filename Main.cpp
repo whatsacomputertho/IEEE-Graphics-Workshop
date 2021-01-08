@@ -22,7 +22,8 @@ int main(int argc, char** argv)
 	Camera camera = Camera(glm::vec3(0.0f, 0.0f, -3.0f), 70.0f, ((float)window.getWidth())/((float)window.getHeight()), 0.01f, 1000.0f);
 
 	//Get uniform variable address from our vertex shader program & add to vertex shader object
-	vertexShader.getUniforms()[vertexShader.TRANSFORM] = (glGetUniformLocation(Shader::program, "transform"));
+	vertexShader.getUniforms()[vertexShader.TRANSFORM_RESOLUTION] = (glGetUniformLocation(Shader::program, "transform"));
+	fragmentShader.getUniforms()[fragmentShader.TRANSFORM_RESOLUTION] = (glGetUniformLocation(Shader::program, "resolution"));
 
 	//Hardcode a vertex array specifying two triangles offset by 0.5 units in the z direction
 	Vertex vertex[6] =
@@ -64,6 +65,9 @@ int main(int argc, char** argv)
 
 		//Actually draw the mesh to the screen
 		mesh.draw();
+
+		//Update our fragment shader data using our window resolution
+		fragmentShader.update(glm::vec2((float)window.getWidth(), (float)window.getHeight()));
 
 		//Swap buffers and input poll
 		window.update(camera);

@@ -2,7 +2,7 @@
 
 //Getters and setters
 GLuint Mesh::getVertexArrayObject() { return this->vertexArrayObject; }
-GLuint* Mesh::getVertexArrayBuffers() { return this->vertexArrayBuffers; }
+GLuint* Mesh::getVertexBufferObjects() { return this->vertexBufferObjects; }
 unsigned int Mesh::getNumVertices() { return this->numVertices; }
 void Mesh::setNumVertices(unsigned int numVertices) { this->numVertices = numVertices; }
 
@@ -13,9 +13,9 @@ void Mesh::init(Vertex* vertices)
 	glGenVertexArrays(1, &vertexArrayObject);
 	glBindVertexArray(getVertexArrayObject());
 
-	//Generate & bind vertex array buffers, send data
-	glGenBuffers(1, getVertexArrayBuffers());
-	glBindBuffer(GL_ARRAY_BUFFER, getVertexArrayBuffers()[0]);
+	//Generate & bind vertex array buffers, and send data
+	glGenBuffers(1, getVertexBufferObjects());
+	glBindBuffer(GL_ARRAY_BUFFER, getVertexBufferObjects()[0]);
 	glBufferData(GL_ARRAY_BUFFER, getNumVertices() * sizeof(vertices[0]), vertices, GL_STATIC_DRAW);
 
 	//Tell OpenGL how to interpret our data
