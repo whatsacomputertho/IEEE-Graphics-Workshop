@@ -1,6 +1,2 @@
-﻿  Camera.cpp
-C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Camera.cpp(51,103): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Camera.cpp(52,103): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Camera.cpp(53,96): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Camera.cpp(54,96): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Mesh.cpp
   IEEE_Graphics_Engine.vcxproj -> C:\Users\ebalc\Desktop\vs_cpp_projects\IEEE_Graphics_Engine\Debug\IEEE_Graphics_Engine.exe

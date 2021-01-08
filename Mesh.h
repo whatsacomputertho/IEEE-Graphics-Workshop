@@ -7,7 +7,7 @@ class Mesh
 {
 private:
 	GLuint vertexArrayObject;
-	GLuint vertexArrayBuffers[1];
+	GLuint vertexBufferObjects[1];
 	unsigned int numVertices;
 	void init(Vertex* vertices);
 
@@ -16,7 +16,7 @@ public:
 	~Mesh();
 	void draw();
 	GLuint getVertexArrayObject();
-	GLuint* getVertexArrayBuffers();
+	GLuint* getVertexBufferObjects();
 	unsigned int getNumVertices();
 	void setNumVertices(unsigned int numVertices);
 };

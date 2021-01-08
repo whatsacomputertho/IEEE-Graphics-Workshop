@@ -52,8 +52,14 @@ void Shader::update(Transform& transform, Camera& camera)
 	//Combine view projection matrix with the model/world matrix
 	glm::mat4 mvp = camera.getViewProjection() * transform.getWorld();
 
-	//Send our transformation and projection data to our shader program
-	glUniformMatrix4fv(uniforms[TRANSFORM], 1, GL_FALSE, &mvp[0][0]);
+	//Send our transformation and projection data to our vertex shader program
+	glUniformMatrix4fv(uniforms[TRANSFORM_RESOLUTION], 1, GL_FALSE, &mvp[0][0]);
+}
+
+void Shader::update(glm::vec2 resolution) 
+{
+	//Send our resolution data to our fragment shader program
+	glUniform2fv(uniforms[TRANSFORM_RESOLUTION], 1, &resolution[0]);
 }
 
 Shader::Shader(std::string filePath, GLenum shaderType)

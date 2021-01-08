@@ -12,6 +12,7 @@ public:
 	Shader(std::string filePath, GLenum shaderType);
 	~Shader();
 	void bind();
+	void update(glm::vec2 resolution);
 	void update(Transform& transform, Camera& camera);
 	static GLuint program;
 	static Camera camera;
@@ -24,7 +25,7 @@ public:
 	void setShaderType(GLenum shaderType);
 	enum
 	{
-		TRANSFORM,
+		TRANSFORM_RESOLUTION,
 		NUM_UNIFORMS
 	};
 
