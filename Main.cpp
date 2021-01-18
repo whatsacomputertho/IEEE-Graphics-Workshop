@@ -31,6 +31,7 @@ int main(int argc, char** argv)
 		Vertex(glm::vec3(0.5f, -0.5f, 0.0f)),
 		Vertex(glm::vec3(0.0f, 0.5f, 0.0f)),
 		Vertex(glm::vec3(-0.5f, -0.5f, 0.0f)),
+		
 
 		Vertex(glm::vec3(0.5f, -0.5f, 0.5f)),
 		Vertex(glm::vec3(0.0f, 0.5f, 0.5f)),
@@ -44,21 +45,25 @@ int main(int argc, char** argv)
 	//Instantiate a transform to use on our mesh
 	Transform transform = Transform();
 
+	//Specify the clear color (AKA, the background color of your scene)
+	//Floats below specify RGBA, although we are only using an RGB buffer. Also, the color below is dark blue
+	glClearColor(0.09f, 0.13f, 0.4f, 0.0f);
+
+	//Bind our shader program (get access to it on the GPU) (only need to run once for both shaders)
+	vertexShader.bind();
+
 	//Initialize a counter for our transform (using a float because we can slow down or speed up transformations using smaller or larger incrementations respectively)
 	float transformCounter = 0.0f;
+	float threshold = 0.0006f;
 
 	//Main loop
 	while (!window.isClosed()) 
 	{
-		//Clear the screen (floats below specify the clear color, I opted to use dark blue)
-		glClearColor(0.09f, 0.13f, 0.4f, 0.0f);
+		//Clear the screen using our specified clear color
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//Rotate the mesh we created around its y axis
 		transform.setRotation(glm::vec3(transform.getRotation().x, transformCounter, transform.getRotation().z));
-
-		//Bind our shader program to our shader files (only need to run once per loop for both shaders)
-		fragmentShader.bind();
 
 		//Update our vertex shader data using our transform operations and our camera for projection
 		vertexShader.update(transform, camera);
@@ -73,7 +78,7 @@ int main(int argc, char** argv)
 		window.update(camera);
 
 		//Increment our counter -- make smaller for fast processors, larger for slow processors
-		transformCounter += 0.0006f;
+		transformCounter += threshold;
 	}
 
 	//int main() return statement

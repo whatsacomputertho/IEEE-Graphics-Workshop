@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "glm.hpp"
+#include <iostream>
 #include <stdio.h>
 
 //Getters and setters
@@ -20,42 +21,16 @@ glm::mat4 Camera::getViewProjection()
 
 void Camera::updatePosition(int direction)
 {
-	float threshold = 0.05f;
-
-	glm::vec3 cProduct;
-
-	switch (direction)
-	{
-	case 0:
-		setPosition(glm::vec3(getPosition().x + (getForward().x * threshold), getPosition().y + (getForward().y * threshold), getPosition().z + (getForward().z * threshold)));
-		break;
-	case 1:
-		//Get cross product of forward and up vector
-		cProduct = glm::cross(getForward(), getUpward());
-		setPosition(glm::vec3(getPosition().x - (cProduct.x * threshold), getPosition().y - (cProduct.y * threshold), getPosition().z - (cProduct.z * threshold)));
-		break;
-	case 2:
-		setPosition(glm::vec3(getPosition().x - (getForward().x * threshold), getPosition().y - (getForward().y * threshold), getPosition().z - (getForward().z * threshold)));
-		break;
-	case 3:
-		//Get cross product of forward and up vector
-		cProduct = glm::cross(getForward(), getUpward());
-		setPosition(glm::vec3(getPosition().x + (cProduct.x * threshold), getPosition().y + (cProduct.y * threshold), getPosition().z + (cProduct.z * threshold)));
-		break;
-	}
+	/*
+		Write code here!
+	*/
 }
 
 void Camera::updateRotation(int xMouse, int yMouse, int width, int height)
 {
-	//Calculate updated forward and up vectors using mouse coords & window dimensions
-	float forwardXCoord = sinf(-1.0f * (((float)xMouse - ((float)width / 2.0f)) / ((float)width / 2.0f)) * (sqrt(3) / 2.0f));
-	float forwardZCoord = cosf(-1.0f * (((float)xMouse - ((float)width / 2.0f)) / ((float)width / 2.0f)) * (sqrt(3) / 2.0f));
-	float upwardYCoord = cosf((((float)yMouse - ((float)height / 2.0f)) / ((float)height / 2.0f)) * (sqrt(3) / 2.0f));
-	float upwardZCoord = sinf((((float)yMouse - ((float)height / 2.0f)) / ((float)height / 2.0f)) * (sqrt(3) / 2.0f));
-
-	//Update the respective coords in the forward and up vectors stored in our camera object
-	setForward(glm::vec3(forwardXCoord, 0.0f - upwardZCoord, forwardZCoord));
-	setUpward(glm::vec3(0.0f, upwardYCoord, upwardZCoord));
+	/*
+		Write code here!s
+	*/
 }
 
 Camera::Camera(glm::vec3 position, float fieldOfView, float aspectRatio, float zNear, float zFar)
