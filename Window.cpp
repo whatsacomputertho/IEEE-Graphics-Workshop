@@ -45,6 +45,9 @@ void Window::init()
 	{
 		std::cerr << "Glew failed to initialize" << std::endl;
 	}
+
+	//glEnable(GL_CULL_FACE);
+	//glCullFace(GL_BACK);
 }
 
 void Window::update(Camera& camera) 
@@ -93,6 +96,8 @@ void Window::update(Camera& camera)
 		case SDL_MOUSEBUTTONUP:
 			std::cout << "Unclicked!" << std::endl;
 			break;
+
+		//Mouse wheel motion to mesh scale?
 		}
 	}
 }
